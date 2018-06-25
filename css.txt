@@ -1,0 +1,103 @@
+ body {
+   background-color: #9E9E9E;
+ 
+  }
+
+#table_container {
+  background-color: white;
+  cellspacing =20px;
+}
+  
+
+h1 {
+    color: white;
+    text-align: center;
+}
+
+.btn{
+  text-align: center;
+  font-size: 15px;
+  border-radius: 4px;
+  background-color: #00796B;
+  color: #B2DFDB ; 
+  font-weight:bold;
+  width: 20%;
+  cursor: pointer;
+
+}
+
+.btn:hover {
+    background-color: #00796B;
+    color: white;
+}
+
+
+#reset_order{  
+  padding:10px;
+  float:left;
+  margin-left:100px;
+}
+
+#btnAddItem{ 
+  padding:10px;
+  float:right;
+  margin-right:100px;
+}
+
+
+#tr1{
+  background-color:#009688;
+}
+   
+ 
+
+.container {
+  width: 20%;
+  background-color: ;
+  height: 300px;
+  margin: 0 100px  
+}
+
+#orderedProductsTbl{
+  text-align:center;
+}
+
+::placeholder {
+
+  font-size: 13px;
+  color:#BDBDBD
+}
+
+
+#shopping_header2{
+  color:#DDCA7E;
+  text-align:center;
+  letter-spacing: 1px;
+  font-size: 30px;
+  font-weight: bold;
+
+
+}
+
+#shopping_header3{
+  color:#DDCA7E;
+  letter-spacing: 3px;
+   font-size: 20px;
+  font-style:italics;
+  font-weight: bold;
+  background-color:#00796B;
+}
+
+label{
+  color:#DDCA7E;
+  font-weight: bold;
+}
+
+button{
+  cursor:pointer;
+}
+
+#td_item, #td_quantity,#td_quantity,#td_price,#td_subtotal,#td_action{
+  background-color: #00796B;
+  color: #B2DFDB ;
+}

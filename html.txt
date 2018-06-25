@@ -1,0 +1,129 @@
+<html>
+  <head>
+  <title id="project_title">Shopping Calculator</title>
+  <link rel="stylesheet" href="index.css">
+ 
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="project_heading">Shopping Calculator</h1>
+
+
+
+    <table id="table_container" cellpadding="10">
+
+
+      <tr id="tr1">
+        <td valign="top" >
+          <table cellpadding="4" cellspacing="10">
+            <thead>
+              <tr>
+                <td id="shopping_header2"colspan="2" >
+                  Shopping Details
+                </td>
+              </tr>
+            </thead>
+
+            <form id="order_form">
+              <tbody>
+                <tr>
+                  <td>
+                    <label class="item_label"for="item">Item Name:</label>
+                  </td>
+                  <td>
+                    <input id="item" name="item" placeholder="e.g, watermelon, Apples, Bannana" type="text" size="28" required/>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td>
+                    <label for="quantity">Quantity:</label>
+                  </td>
+                  <td>
+                    <input id="quantity" name="quantity" placeholder="e.g, 5, 10, 20" type="text" size="28" required/>
+                  </td>
+                </tr>
+
+
+                <tr>
+                  <td>
+                    <label for="price">Price:</label>
+                  </td>
+                  <td>
+                    <input id="price" name="price" placeholder="e.g, 5, 10, 20" type="text" size="28" required/>
+                  </td>
+                </tr>
+
+              </tbody>
+
+              </table>
+
+            <input type="reset" id="reset_order" class="btn" value="Reset" />
+            <input type="button" id="btnAddItem" onclick= "AddtoCart()"class="btn"  value="Add"/>
+
+            </td>
+      </form>
+      </tr>
+
+    <tr id ="tr2">
+      <td valign="top">
+        <table cellpadding="10" cellspacing="2" border="1" id="orderedProductsTbl">
+          <thead>
+
+            <tr>
+              <td id="shopping_header3"  colspan= "5">
+                Order Summary
+              </td>
+
+            </tr>
+
+            <tr id="sub_order header">
+              <td id="td_item" >
+                Item
+              </td>
+              <td id="td_quantity">
+                Quantity
+              </td>
+              <td id="td_price">
+                Price
+              </td>
+              <td id="td_subtotal">
+                Sub_total
+              </td>
+              <td id="td_action">
+                Action
+              </td>
+            </tr>
+          </thead>
+          <tbody id="orderedProductsTblBody">
+
+          </tbody>
+          <tfoot>
+            <tr>       
+              <td colspan="5" align="right" id="cart_total">
+
+              </td>
+            </tr>                                                                                                 
+          </tfoot>
+        </table>
+      </td>
+    </tr>
+    </table>
+
+</div>
+
+<script  type="text/javascript"   src="index.js"></script>                                
+
+</body>
+
+</html>
+
+
+
+
+
+
+
+

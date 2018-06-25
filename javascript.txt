@@ -1,0 +1,134 @@
+//create array that will hold all ordered items
+var shoppingCart = [];
+
+//Empties shopping cart
+function emptyTable(orderedProductsTblBody) {
+  while (orderedProductsTblBody.rows.length > 0) {
+    orderedProductsTblBody.deleteRow(0);
+  }
+}
+
+
+//This function manipulates DOM and displays content of shopping cart
+function displayShoppingCart() {
+
+  //variable to hold total price of shopping cart
+  var cart_total_price = 0;
+
+
+  var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
+  emptyTable(orderedProductsTblBody);
+
+
+  //iterate over array of objects
+
+  for (let i=0; i < shoppingCart.length; i++) {
+
+
+    //add new row    
+    var row = orderedProductsTblBody.insertRow();
+
+    //create five cells for product properties 
+    var cellItem = row.insertCell(0);
+    var cellQuantity = row.insertCell(1);
+    var cellPrice = row.insertCell(2);
+    var cellSub_total = row.insertCell(3);
+    var cellAction = row.insertCell(4);
+    cellSub_total.align = "right";
+
+
+    // Create the delete button
+    var button = document.createElement("button");
+    button.innerHTML = "Delete";
+
+    //  Append somewhere
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(button);
+
+    //  Add event handler
+    function deleteOrder(currentIndex) {
+      button.addEventListener("click", function () {
+        orderedProductsTblBody.deleteRow(currentIndex);
+        targetIndex = shoppingCart.indexOf(shoppingCart[currentIndex]);
+        shoppingCart.splice(targetIndex, 1);
+        displayShoppingCart();
+      });
+    }
+    deleteOrder(i);
+
+
+    //fill cells with values from current product order of the shopping cart
+    cellItem.innerHTML = shoppingCart[i].Item;
+    cellQuantity.innerHTML = shoppingCart[i].Quantity;
+    cellPrice.innerHTML = shoppingCart[i].Price;
+    cellSub_total.innerHTML = shoppingCart[i].Sub_total;
+    cellAction.appendChild(button);
+    cart_total_price += shoppingCart[i].Sub_total;
+
+  }
+
+  //fill total price on shopping cart 
+  document.getElementById("cart_total").innerHTML = cart_total_price;
+
+}
+
+//CreateS JavaScript Object that will hold four properties:item,quantity,Price, sub_total and action
+function AddtoCart(item, quantity, price, sub_total) {
+
+
+  // An empty object to hold sub total prices
+  var singleOrder = {};
+
+
+  //validation of form details before adding to shopping cart
+  if (validation()) {
+
+    var item = document.getElementById("item").value;
+    var quantity = document.getElementById("quantity").value;
+    var price = document.getElementById("price").value;
+
+    //Calculates the individual prices for each order
+    var sub_total = price * quantity;
+
+    //Fill the order object with data
+    singleOrder['Item'] = item;
+    singleOrder['Quantity'] = quantity;
+    singleOrder['Price'] = price;
+    singleOrder['Sub_total'] = sub_total;
+
+
+    //Add newly created order to the shopping cart 
+    shoppingCart.push(singleOrder);
+
+    //call display function to show shopping cart on screen
+    displayShoppingCart();
+  }
+
+}
+
+//validation function
+function validation() {
+  var item = document.getElementById("item").value;
+  var quantity = document.getElementById("quantity").value;
+  var price = document.getElementById("price").value;
+  if (item === '' || quantity === '' || price === '') {
+    alert("Please fill all fields...!!!!!!");
+    return false;
+  } else {
+    return true;
+  }
+
+};
+
+//Reset order function
+function ResetOrder() {
+  var resetBtn = document.getElementById("reset_order");
+  var orderedProductsTblBody = document.getElementById("orderedProductsTblBody");
+  var orderForm = document.getElementById("order_form");
+
+  resetBtn.addEventListener("click", function () {
+
+    orderForm.reset();
+
+  });
+}
